@@ -14,6 +14,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
+#KATHERINE COMMENT: Nice use of translation processing where both language and emotion need analysis, it shows thoughtful handling of the multilingual and nuanced text inputs.
 analyzer = SentimentIntensityAnalyzer()
 translator = Translator()
 
@@ -29,6 +30,7 @@ def binary_sentiment(score):
     else:
         return 0
 
+#KATHERINE COMMENT: I appreciate the clear binary sentiment mapping, it aligns well with logistic regression's binary classification that you use later on.
 # Apply binary mapping
 df_filtered['sentiment_binary'] = df_filtered['sentiment_score'].apply(binary_sentiment)
 
@@ -60,6 +62,7 @@ y = df_model['sentiment_binary']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=42)
 
 # Model
+#KATHERINE COMMENT: Logistic Regression is a great way to handle the text data you are using, it's a great interpretable model choice.
 model = LogisticRegression()
 model.fit(X_train, y_train)
 
@@ -82,6 +85,7 @@ plt.show()
 
 
 # two sample t test
+#KATHERINE COMMENT: Interesting inclusion of statistical testing, the t-test adds a layer of analytical depth that complements the ML model.
 from scipy.stats import ttest_ind
 
 # Assume you have two groups
